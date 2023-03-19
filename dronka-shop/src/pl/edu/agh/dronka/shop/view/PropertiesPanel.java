@@ -8,6 +8,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JPanel;
 
 import pl.edu.agh.dronka.shop.controller.ShopController;
+import pl.edu.agh.dronka.shop.model.Category;
 import pl.edu.agh.dronka.shop.model.filter.ItemFilter;
 
 public class PropertiesPanel extends JPanel {
@@ -45,6 +46,52 @@ public class PropertiesPanel extends JPanel {
 				shopController.filterItems(filter);
 			}
 		}));
+
+		if (shopController.getCurrentCategory() == Category.BOOKS) {
+			add(createPropertyCheckbox("Twarda oprawa", new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent event) {
+					filter.getItemSpec().setHardcover(
+							((JCheckBox) event.getSource()).isSelected());
+					shopController.filterItems(filter);
+				}
+			}));
+		}
+
+		if (shopController.getCurrentCategory() == Category.ELECTRONICS) {
+			add(createPropertyCheckbox("Mobilny", new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent event) {
+					filter.getItemSpec().setMobile(
+							((JCheckBox) event.getSource()).isSelected());
+					shopController.filterItems(filter);
+				}
+			}));
+
+			add(createPropertyCheckbox("Gwarancja", new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent event) {
+					filter.getItemSpec().setGuarantee(
+							((JCheckBox) event.getSource()).isSelected());
+					shopController.filterItems(filter);
+				}
+			}));
+		}
+
+		if (shopController.getCurrentCategory() == Category.MUSIC) {
+			add(createPropertyCheckbox("Dołączone video", new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent event) {
+					filter.getItemSpec().setAttachedVideo(
+							((JCheckBox) event.getSource()).isSelected());
+					shopController.filterItems(filter);
+				}
+			}));
+		}
 
 	}
 

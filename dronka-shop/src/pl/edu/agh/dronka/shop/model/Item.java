@@ -1,5 +1,7 @@
 package pl.edu.agh.dronka.shop.model;
 
+import java.util.Date;
+
 public class Item {
 
 	private String name;
@@ -14,7 +16,16 @@ public class Item {
 
 	private boolean polish;
 
-	private int noPages = 0;
+	private int noPages;
+	private boolean hardcover;
+
+	private boolean mobile;
+	private boolean guarantee;
+
+	private Date expiryDate;
+	private Genre genre;
+	private boolean attachedVideo;
+
 
 	public Item(String name, Category category, int price, int quantity) {
 		this.name = name;
@@ -72,6 +83,54 @@ public class Item {
 
 	public int getNoPages() {
 		return noPages;
+	}
+
+	public void setHardcover(boolean hardcover) {
+		this.hardcover = hardcover;
+	}
+
+	public boolean isHardcover() {
+		return hardcover;
+	}
+
+	public void setMobile(boolean mobile) {
+		this.mobile = mobile;
+	}
+
+	public boolean isMobile() {
+		return mobile;
+	}
+
+	public void setGuarantee(boolean guarantee) {
+		this.guarantee = guarantee;
+	}
+
+	public boolean isGuarantee() {
+		return guarantee;
+	}
+
+	public void setExpiryDate(Date expiryDate) {
+		this.expiryDate = expiryDate;
+	}
+
+	public Date getExpiryDate() {
+		return expiryDate;
+	}
+
+	public void setGenre(Genre genre) {
+		this.genre = genre;
+	}
+
+	public Genre getGenre() {
+		return genre;
+	}
+
+	public void setAttachedVideo(boolean attachedVideo) {
+		this.attachedVideo = attachedVideo;
+	}
+
+	public boolean isAttachedVideo() {
+		return attachedVideo;
 	}
 
 	@Override

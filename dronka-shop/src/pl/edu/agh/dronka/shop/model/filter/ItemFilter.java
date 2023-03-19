@@ -29,6 +29,22 @@ public class ItemFilter {
 			return false;
 		}
 
+		if (itemSpec.isHardcover() && !item.isHardcover()) {
+			return false;
+		}
+
+		if (itemSpec.isMobile() && !item.isMobile()) {
+			return false;
+		}
+
+		if (itemSpec.isGuarantee() && !item.isGuarantee()) {
+			return false;
+		}
+
+		if (itemSpec.isAttachedVideo() && !item.isAttachedVideo()) {
+			return false;
+		}
+
 		return true;
 	}
 

@@ -43,9 +43,6 @@ public class ItemDetailsPanel extends JPanel {
 					.toString());
 		}
 
-		// test:
-		createInfoLabel("hshd", "test");
-
 		addToCartButton.setEnabled(item.getQuantity() > 0);
 	}
 

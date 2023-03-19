@@ -2,13 +2,17 @@ package pl.edu.agh.dronka.shop.model.provider;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import pl.edu.agh.dronka.shop.model.Category;
 import pl.edu.agh.dronka.shop.model.Index;
 import pl.edu.agh.dronka.shop.model.Item;
 import pl.edu.agh.dronka.shop.model.Shop;
 import pl.edu.agh.dronka.shop.model.User;
+import pl.edu.agh.dronka.shop.model.Genre;
 
 public class ShopProvider {
 
@@ -83,10 +87,28 @@ public class ShopProvider {
 				item.setPolish(isPolish);
 				item.setSecondhand(isSecondhand);
 
-				//test:
-				String noPages = reader.getValue(dataLine, "Liczba stron");
-				if(noPages != null) {
-					item.setNoPages(Integer.parseInt(noPages));
+				if (category == Category.BOOKS) {
+					item.setNoPages(Integer.parseInt(reader.getValue(dataLine, "Liczba stron")));
+					item.setHardcover(Boolean.parseBoolean(reader.getValue(dataLine, "Twarda oprawa")));
+				}
+
+				if (category == Category.ELECTRONICS) {
+					item.setMobile(Boolean.parseBoolean(reader.getValue(dataLine, "Mobilny")));
+					item.setGuarantee(Boolean.parseBoolean(reader.getValue(dataLine, "Gwarancja")));
+				}
+
+				if (category == Category.FOOD) {
+					SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+					try {
+						item.setExpiryDate(formatter.parse(reader.getValue(dataLine, "Data przydatności do spożycia")));
+					} catch (ParseException e) {
+						e.printStackTrace();
+					}
+				}
+
+				if (category == Category.MUSIC) {
+					item.setGenre(Genre.valueOf(reader.getValue(dataLine, "Gatunek muzyczny")));
+					item.setAttachedVideo(Boolean.parseBoolean(reader.getValue(dataLine, "Dołączone video")));
 				}
 
 				items.add(item);
