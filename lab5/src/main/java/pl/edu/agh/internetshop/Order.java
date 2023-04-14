@@ -5,7 +5,7 @@ import java.util.UUID;
 
 
 public class Order {
-    private static final BigDecimal TAX_VALUE = BigDecimal.valueOf(1.22);
+    private static final BigDecimal TAX_VALUE = BigDecimal.valueOf(1.23);
 	private final UUID id;
     private final Product product;
     private boolean paid;
@@ -62,8 +62,8 @@ public class Order {
     }
 
     public void send() {
-        boolean sentSuccesful = getShipmentMethod().send(shipment, shipment.getSenderAddress(), shipment.getRecipientAddress());
-        shipment.setShipped(sentSuccesful);
+        boolean sentSuccessful = getShipmentMethod().send(shipment, shipment.getSenderAddress(), shipment.getRecipientAddress());
+        shipment.setShipped(sentSuccessful);
     }
 
     public void pay(MoneyTransfer moneyTransfer) {

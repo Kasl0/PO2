@@ -1,5 +1,6 @@
 package pl.edu.agh.internetshop;
 
+import jdk.internal.vm.compiler.collections.EconomicMap;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -84,7 +85,7 @@ public class OrderTest {
 		Order order = getOrderWithCertainProductPrice(2); // 2 PLN
 
 		// then
-		assertBigDecimalCompareValue(order.getPriceWithTaxes(), BigDecimal.valueOf(2.44)); // 2.44 PLN
+		assertBigDecimalCompareValue(order.getPriceWithTaxes(), BigDecimal.valueOf(2.46)); // 2.44 PLN
 	}
 
 	@Test
@@ -204,5 +205,22 @@ public class OrderTest {
 
 		// then
 		assertFalse(order.isPaid());
+	}
+
+	@Test
+	public void testMultipleProducts() throws Exception {
+
+		// given
+		Product expectedProduct1 = mock(Product.class);
+		Product expectedProduct2 = mock(Product.class);
+		Order order = new Order(expectedProduct1, expectedProduct2);
+
+		// when
+		Product actualProduct1 = order.getProduct1();
+		Product actualProduct2 = order.getProduct2();
+
+		// then
+		assertSame(expectedProduct1, actualProduct1);
+		assertSame(expectedProduct2, actualProduct2);
 	}
 }
