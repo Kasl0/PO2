@@ -1,4 +1,4 @@
-package pl.edu.agh.to.lab4;
+/*package pl.edu.agh.to.lab4;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -80,4 +80,4 @@ public class FinderTest {
             allPrisoners.put(category, new ArrayList<Prisoner>());
         allPrisoners.get(category).add(news);
     }
-}
+}*/

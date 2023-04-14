@@ -2,8 +2,9 @@ package pl.edu.agh.to.lab4;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 
-public class PersonDataProvider {
+public class PersonDataProvider implements SuspectAggregate {
 
     private final Collection<CracowCitizen> cracowCitizens = new ArrayList<CracowCitizen>();
 
@@ -23,5 +24,23 @@ public class PersonDataProvider {
 
     public Collection<CracowCitizen> getAllCracowCitizens() {
         return cracowCitizens;
+    }
+
+    public Iterator<Suspect> iterator() {
+        return new Iterator<Suspect>() {
+
+            private Iterator<CracowCitizen> cracowCitizenIterator = cracowCitizens.iterator();
+            public boolean hasNext() {
+                return cracowCitizenIterator.hasNext();
+            }
+
+            public Suspect next() {
+                return cracowCitizenIterator.next();
+            }
+
+            public void remove() {
+                cracowCitizenIterator.remove();
+            }
+        };
     }
 }

@@ -4,7 +4,7 @@ import java.util.Calendar;
 import java.time.LocalDate;
 import java.time.Period;
 
-public class Prisoner extends Suspect {
+public class Prisoner extends Suspect{
     private final int judgementYear;
 
     private final int sentenceDuration;
