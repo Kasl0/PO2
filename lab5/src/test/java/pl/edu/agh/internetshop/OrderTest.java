@@ -25,7 +25,7 @@ public class OrderTest {
 		Order order = new Order(expectedProduct);
 
 		// when
-		Product actualProduct = order.getProduct();
+		Product actualProduct = order.getProducts().get(0);
 
 		// then
 		assertSame(expectedProduct, actualProduct);
@@ -216,8 +216,8 @@ public class OrderTest {
 		Order order = new Order(expectedProduct1, expectedProduct2);
 
 		// when
-		Product actualProduct1 = order.getProduct1();
-		Product actualProduct2 = order.getProduct2();
+		Product actualProduct1 = order.getProducts().get(0);
+		Product actualProduct2 = order.getProducts().get(1);
 
 		// then
 		assertSame(expectedProduct1, actualProduct1);
