@@ -9,7 +9,8 @@ import java.util.UUID;
 public class Order {
     private static final BigDecimal TAX_VALUE = BigDecimal.valueOf(1.23);
 	private final UUID id;
-    private List<Product> products;
+    private final List<Product> products;
+    private BigDecimal discount = BigDecimal.valueOf(0);
     private boolean paid;
     private Shipment shipment;
     private ShipmentMethod shipmentMethod;
@@ -19,6 +20,14 @@ public class Order {
         this.products = Arrays.asList(products);
         id = UUID.randomUUID();
         paid = false;
+    }
+
+    public void setDiscount(BigDecimal discount) {
+        this.discount = discount;
+    }
+
+    public BigDecimal getDiscount() {
+        return discount;
     }
 
     public UUID getId() {
@@ -50,7 +59,7 @@ public class Order {
         for(Product product : products) {
             sum = sum.add(product.getPrice());
         }
-        return sum;
+        return sum.multiply(BigDecimal.valueOf(1).subtract(getDiscount()));
     }
 
     public BigDecimal getPriceWithTaxes() {
