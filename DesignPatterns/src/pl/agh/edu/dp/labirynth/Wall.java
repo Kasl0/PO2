@@ -1,6 +1,6 @@
 package pl.agh.edu.dp.labirynth;
 
-public class Wall extends MapSite {
+public class Wall extends MapSite implements IWall{
     public Wall(){
 
     }

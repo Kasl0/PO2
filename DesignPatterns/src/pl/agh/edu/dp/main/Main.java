@@ -7,8 +7,7 @@ public class Main {
     public static void main(String[] args) {
 
         MazeGame mazeGame = new MazeGame();
-        Maze maze = mazeGame.createMaze(new StandardBuilderMaze());
-
+        Maze maze = mazeGame.createMaze(new MazeFactory());
         System.out.println(maze.getRoomNumbers());
     }
 }

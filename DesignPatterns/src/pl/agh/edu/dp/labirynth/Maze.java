@@ -3,17 +3,17 @@ package pl.agh.edu.dp.labirynth;
 import java.util.Vector;
 
 public class Maze {
-    private Vector<Room> rooms;
+    private Vector<IRoom> rooms;
 
     public Maze() {
-        this.rooms = new Vector<Room>();
+        this.rooms = new Vector<IRoom>();
     }
 
-    public void addRoom(Room room){
+    public void addRoom(IRoom room){
         rooms.add(room);
     }
 
-    public void setRooms(Vector<Room> rooms) {
+    public void setRooms(Vector<IRoom> rooms) {
         this.rooms = rooms;
     }
 

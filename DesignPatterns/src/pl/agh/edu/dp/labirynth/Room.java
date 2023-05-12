@@ -3,7 +3,7 @@ package pl.agh.edu.dp.labirynth;
 import java.util.EnumMap;
 import java.util.Map;
 
-public class Room extends MapSite
+public class Room extends MapSite implements IRoom
 {
     private int roomNumber;
     private Map<Direction, MapSite> sides;

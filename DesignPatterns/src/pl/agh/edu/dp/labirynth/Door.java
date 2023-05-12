@@ -1,10 +1,10 @@
 package pl.agh.edu.dp.labirynth;
 
 public class Door extends MapSite {
-    private Room room1;
-    private Room room2;
+    private IRoom room1;
+    private IRoom room2;
 
-    public Door(Room r1, Room r2){
+    public Door(IRoom r1, IRoom r2){
         this.room1 = r1;
         this.room2 = r2;
     }
@@ -15,19 +15,19 @@ public class Door extends MapSite {
 
     }
 
-    public Room getRoom1() {
+    public IRoom getRoom1() {
         return room1;
     }
 
-    public void setRoom1(Room room1) {
+    public void setRoom1(IRoom room1) {
         this.room1 = room1;
     }
 
-    public Room getRoom2() {
+    public IRoom getRoom2() {
         return room2;
     }
 
-    public void setRoom2(Room room2) {
+    public void setRoom2(IRoom room2) {
         this.room1 = room2;
     }
 }

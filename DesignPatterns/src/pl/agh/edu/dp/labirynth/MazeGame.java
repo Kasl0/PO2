@@ -1,25 +1,25 @@
 package pl.agh.edu.dp.labirynth;
 
 public class MazeGame {
-    public Maze createMaze(MazeBuilder builder){
+    public Maze createMaze(MazeFactory factory){
 
-        builder.buildMaze();
+        factory.makeMaze();
 
-        Room r1 = builder.buildRoom(1);
-        Room r2 = builder.buildRoom(2);
+        IRoom r1 = factory.makeRoom(1);
+        IRoom r2 = factory.makeRoom(2);
 
-        builder.buildDoor(r1, r2);
+        factory.makeDoor(r1, r2);
 
-        builder.buildWall(r1, Direction.North);
-        builder.buildWall(r1, Direction.East);
-        builder.buildWall(r1, Direction.South);
-        builder.buildWall(r1, Direction.West);
+        factory.makeWall(r1, Direction.North);
+        factory.makeWall(r1, Direction.East);
+        factory.makeWall(r1, Direction.South);
+        factory.makeWall(r1, Direction.West);
 
-        builder.buildWall(r2, Direction.North);
-        builder.buildWall(r2, Direction.East);
-        builder.buildWall(r2, Direction.South);
-        builder.buildWall(r2, Direction.West);
+        factory.makeWall(r2, Direction.North);
+        factory.makeWall(r2, Direction.East);
+        factory.makeWall(r2, Direction.South);
+        factory.makeWall(r2, Direction.West);
 
-        return builder.getMaze();
+        return factory.getMaze();
     }
 }
