@@ -13,4 +13,9 @@ public class EnchantedRoom implements IRoom {
     public int getRoomNumber() {
         return 0;
     }
+
+    @Override
+    public void Enter() {
+
+    }
 }

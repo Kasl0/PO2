@@ -15,7 +15,7 @@ public class MazeFactory {
     }
 
 
-    private Maze currentMaze;
+    protected Maze currentMaze;
 
     public void makeMaze() {
         currentMaze = new Maze();

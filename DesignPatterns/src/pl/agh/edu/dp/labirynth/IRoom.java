@@ -7,4 +7,6 @@ public interface IRoom {
     void setSide(Direction direction, MapSite ms);
 
     int getRoomNumber();
+
+    void Enter();
 }

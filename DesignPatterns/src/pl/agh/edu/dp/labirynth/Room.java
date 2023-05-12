@@ -26,7 +26,6 @@ public class Room extends MapSite implements IRoom
         return this.roomNumber;
     }
 
-    @Override
     public void Enter(){
 
     }

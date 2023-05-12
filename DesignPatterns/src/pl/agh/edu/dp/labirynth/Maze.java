@@ -21,4 +21,11 @@ public class Maze {
     {
         return rooms.size();
     }
+
+    public IRoom getRoom(int roomNumber) {
+        for (IRoom room : rooms) {
+            if (room.getRoomNumber() == roomNumber) return room;
+        }
+        return null;
+    }
 }
